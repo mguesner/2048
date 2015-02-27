@@ -19,4 +19,11 @@ void	display(t_env e)
     		break;
     	i++;
     }
+    i = 0;
+    while (i < 16)
+    {
+		if (e.grid[i / 4][i % 4])
+			mvprintw((i / 4) * e.square_y + e.square_y / 2, (i % 4) * e.square_x + e.square_x / 2, "%d", e.grid[i / 4][i % 4]);
+		i++;
+    }
 }

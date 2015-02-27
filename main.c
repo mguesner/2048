@@ -3,6 +3,13 @@
 int main()
 {
 	t_env e;
+	int i = 0;
+	while (i < 16)
+	{
+		e.grid[i / 4][i % 4] = 0;
+		i++;
+	}
+	e.grid[2][3] = 2;
 	initscr();
 	raw();
 	curs_set(0);
