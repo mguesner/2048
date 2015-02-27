@@ -1,34 +1,19 @@
 #include <curses.h>
-
+#include "game.h"
 int main()
 {
+	t_env e;
 	initscr();
 	raw();
 	curs_set(0);
 	noecho();
 	keypad(stdscr, TRUE);
-	int mx=0, my=0;
-	int i = 0;
     initscr();
-    getmaxyx(stdscr, my, mx);
-    int square_x = mx / 4;
-    int square_y = my / 4;
-    while (i < mx * my)
-    {
-    	char tmp;
-    	if (!((i / mx) % square_y) && !((i % mx) % square_x))
-    		tmp = '+';
-    	else if (!((i / mx) % square_y))
-    		tmp = '-';
-    	else if (!((i % mx) % square_x))
-    		tmp = '|';
-    	else
-    		tmp = ' ';
-    	if (mvaddch(i / mx, i % mx, tmp) == ERR)
-    		break;
-    	i++;
-    }
-	refresh();
+    getmaxyx(stdscr, e.my, e.mx);
+    e.size = e.mx * e.my;
+    e.square_x = e.mx / 4;
+    e.square_y = e.my / 4;
+    display(e);
 	int ch;
 	while ((ch = getch()))
 	{
@@ -42,6 +27,7 @@ int main()
 			;
 		else if (ch == 27)
 			break;
+		display(e);
 	}
 
     endwin();
