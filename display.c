@@ -26,4 +26,5 @@ void	display(t_env e)
 			mvprintw((i / 4) * e.square_y + e.square_y / 2, (i % 4) * e.square_x + e.square_x / 2, "%d", e.grid[i / 4][i % 4]);
 		i++;
     }
+    refresh();
 }

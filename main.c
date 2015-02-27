@@ -34,6 +34,10 @@ int main()
 			;
 		else if (ch == 27)
 			break;
+		getmaxyx(stdscr, e.my, e.mx);
+    e.size = e.mx * e.my;
+    e.square_x = e.mx / 4;
+    e.square_y = e.my / 4;
 		display(e);
 	}
 
