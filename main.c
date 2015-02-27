@@ -6,6 +6,7 @@ int main()
 	raw();
 	curs_set(0);
 	noecho();
+	keypad(stdscr, TRUE);
 	int mx=0, my=0;
 	int i = 0;
     initscr();
@@ -23,16 +24,26 @@ int main()
     		tmp = '|';
     	else
     		tmp = ' ';
-    	// printw("i = %d, mx = %d, my = %d, i / my = %d, i %% mx = %d", i, mx, my, i / my, i % mx);
     	if (mvaddch(i / mx, i % mx, tmp) == ERR)
     		break;
     	i++;
-    	// if (getch() == 27)
-    	// 	break;
     }
 	refresh();
-    getch();
+	int ch;
+	while ((ch = getch()))
+	{
+		if (ch == KEY_DOWN)
+			;
+		else if (ch == KEY_UP)
+			;
+		else if (ch == KEY_LEFT)
+			;
+		else if (ch == KEY_RIGHT)
+			;
+		else if (ch == 27)
+			break;
+	}
+
     endwin();
-    printf("%d %d\n", mx, my);
     curs_set(1);
 }
