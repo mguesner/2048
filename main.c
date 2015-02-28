@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/02/28 11:54:53 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/02/28 13:11:12 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,21 +42,23 @@ int main()
 	int ch;
 	while ((ch = getch()) != ERR)
 	{
+		int test = 0;
 		if (ch == KEY_DOWN)
-			update(e.grid, 3);
+			test =update(e.grid, 3);
 		else if (ch == KEY_UP)
-			update(e.grid, 0);
+			test = update(e.grid, 0);
 		else if (ch == KEY_LEFT)
-			update(e.grid, 1);
+			test = update(e.grid, 1);
 		else if (ch == KEY_RIGHT)
-			update(e.grid, 2);
+			test = update(e.grid, 2);
 		else if (ch == 27)
 			break;
 		getmaxyx(stdscr, e.my, e.mx);
     	e.size = e.mx * e.my;
     	e.square_x = e.mx / 4;
     	e.square_y = e.my / 4;
-    	grid_generate(e.grid);
+    	if (test)
+    		grid_generate(e.grid);
 		display(e);
 	}
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/02/28 11:54:17 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/02/28 13:10:32 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct				s_env
 }							t_env;
 
 void	display(t_env e);
-void	update(int grid[4][4], int action);
+int	update(int grid[4][4], int action);
 void    grid_generate(int grid[4][4]);
 
 #endif

@@ -60,7 +60,7 @@ void	puttab(int grid[4][4])
 
 }
 
-void	downthis(int grid[4][4], int j, int i)
+int	downthis(int grid[4][4], int j, int i)
 {
 	int value = grid[j][i];
 	int tmp = j;
@@ -71,25 +71,26 @@ void	downthis(int grid[4][4], int j, int i)
 		{
 			grid[j][i] *= 2;
 			grid[tmp][i] = 0;
-			return;
+			return (1);
 		}
 		else if (grid[j][i])
 		{
 			grid[tmp][i] = 0;
 			grid[j - 1][i] = value;
-			return;
+			return (j - 1 - tmp);
 		}
 		else if (j == 3)
 		{
 			grid[tmp][i] = 0;
 			grid[j][i] = value;
-			return;
+			return (1);
 		}
 		j++;
 	}
+	return (0);
 }
 
-void	upthis(int grid[4][4], int j, int i)
+int	upthis(int grid[4][4], int j, int i)
 {
 	int value = grid[j][i];
 	int tmp = j;
@@ -100,43 +101,50 @@ void	upthis(int grid[4][4], int j, int i)
 		{
 			grid[j][i] *= 2;
 			grid[tmp][i] = 0;
-			return;
+			return (1);
 		}
 		else if (grid[j][i])
 		{
 			grid[tmp][i] = 0;
 			grid[j + 1][i] = value;
-			return;
+			return (j + 1 - tmp);
 		}
 		else if (!j)
 		{
 			grid[tmp][i] = 0;
 			grid[j][i] = value;
-			return;
+			return (1);
 		}
 		j--;
 	}
+	return (0);
 }
 
 
-void	upper(int grid[4][4])
+int	upper(int grid[4][4])
 {
 	int i = 0;
+	int ret = 0;
+	int test;
 	while (i < 4)
 	{
 		int j = 1;
 		while (j <= 3)
 		{
 			if (grid[j][i])
-			upthis(grid, j, i);
+			{
+				if ((test = upthis(grid, j, i)))
+					ret = test;
+			}
 			j++;
 		}
 		i++;
 	}
+	return (ret);
 }
 
 
-void	leftthis(int grid[4][4], int j, int i)
+int	leftthis(int grid[4][4], int j, int i)
 {
 	int value = grid[j][i];
 	int tmp = i;
@@ -147,41 +155,48 @@ void	leftthis(int grid[4][4], int j, int i)
 		{
 			grid[j][i] *= 2;
 			grid[j][tmp] = 0;
-			return;
+			return (1);
 		}
 		else if (grid[j][i])
 		{
 			grid[j][tmp] = 0;
 			grid[j][i + 1] = value;
-			return;
+			return (i + 1 - tmp);
 		}
 		else if (!i)
 		{
 			grid[j][tmp] = 0;
 			grid[j][i] = value;
-			return;
+			return (1);
 		}
 		i--;
 	}
+	return (0);
 }
 
-void	left(int grid[4][4])
+int	left(int grid[4][4])
 {
 	int j = 0;
+	int ret = 0;
+	int test;
 	while (j < 4)
 	{
 		int i = 1;
 		while (i <= 3)
 		{
 			if (grid[j][i])
-				leftthis(grid, j, i);
+			{
+				if ((test = leftthis(grid, j, i)))
+					ret = test;
+			}
 			i++;
 		}
 		j++;
 	}
+	return (ret);
 }
 
-void	rightthis(int grid[4][4], int j, int i)
+int	rightthis(int grid[4][4], int j, int i)
 {
 	int value = grid[j][i];
 	int tmp = i;
@@ -192,68 +207,83 @@ void	rightthis(int grid[4][4], int j, int i)
 		{
 			grid[j][i] *= 2;
 			grid[j][tmp] = 0;
-			return;
+			return (1);
 		}
 		else if (grid[j][i])
 		{
 			grid[j][tmp] = 0;
 			grid[j][i - 1] = value;
-			return;
+			return (i - 1 - tmp);
 		}
 		else if (i == 3)
 		{
 			grid[j][tmp] = 0;
 			grid[j][i] = value;
-			return;
+			return (1);
 		}
 		i++;
 	}
+	return (0);
 }
 
 
-void	right(int grid[4][4])
+int	right(int grid[4][4])
 {
 	int j = 0;
+	int ret = 0;
+	int test;
 	while (j < 4)
 	{
 		int i = 2;
 		while (i >= 0)
 		{
 			if (grid[j][i])
-				rightthis(grid, j, i);
+			{
+				if ((test = rightthis(grid, j, i)))
+					ret = test;
+			}
 			i--;
 		}
 		j++;
 	}
+	return (ret);
 }
 
-void	down(int grid[4][4])
+int	down(int grid[4][4])
 {
 	int i = 0;
+	int ret = 0;
+	int test;
 	while (i < 4)
 	{
 		int j = 2;
 		while (j >= 0)
 		{
 			if (grid[j][i])
-				downthis(grid, j, i);
+			{
+				if ((test = downthis(grid, j, i)))
+					ret = test;
+			}
 			j--;
 		}
 		i++;
 	}
+	return (ret);
 }
 
 
-void	update(int grid[4][4], int action)
+int		update(int grid[4][4], int action)
 {
+	int ret;
 	if (action == 0)
-		upper(grid);
+		ret = upper(grid);
 	else if (action == 1)
-		left(grid);
+		ret = left(grid);
 	else if (action == 2)
-		right(grid);
+		ret = right(grid);
 	else
-		down(grid);
+		ret = down(grid);
+	return (ret);
 }
 
 // int main()
