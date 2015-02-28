@@ -2,13 +2,14 @@
 #include <time.h>
 #include <stdlib.h>
 #include "game.h"
+#include <libft.h>
 
-void    grid_generate(int grid[4][4], t_env *e)
+void	grid_generate(int grid[4][4], t_env *e)
 {
 	(void) e;
-  int i = 0;
-  int empty = 0;
-  while (i < 4)
+	int i = 0;
+	int empty = 0;
+	while (i < 4)
 	{
 	  int j = 0;
 	  while (j < 4)
@@ -19,32 +20,32 @@ void    grid_generate(int grid[4][4], t_env *e)
 		}
 	  i++;
 	}
-  if (empty == 0)
+	if (empty == 0)
 	{
 	  //ft_putstr("FAIL OMG QUIT THAT SHIT\n")
 		exit(0);
 	  return;   //ERROR OMG
 	}
-  int position = (empty == 1) ? empty : rand() % empty;
-  int test = rand() % 100;
-  int value = test > 75 ? 4 : 2;
-  empty = 0;
-  i = 0;
-  while (i < 4)
+	int position = (empty == 1) ? empty : rand() % empty;
+	int test = rand() % 100;
+	int value = test > 75 ? 4 : 2;
+	empty = 0;
+	i = 0;
+	while (i < 4)
 	{
-	  int j = 0;
-	  while (j < 4)
+		int j = 0;
+		while (j < 4)
 		{
-	  if (grid[i][j] == 0)
-		empty++;
-	  if (grid[i][j] == 0 && empty == position)
+			if (grid[i][j] == 0)
+				empty++;
+			if (grid[i][j] == 0 && empty == position)
 			{
-		  grid[i][j] = value;
-		  return;
+				grid[i][j] = value;
+				return;
 			}
-	  j++;
+			j++;
 		}
-	  i++;
+		i++;
 	}
 }
 
@@ -63,17 +64,18 @@ void	puttab(int grid[4][4])
 
 }
 
-int	downthis(int grid[4][4], int j, int i)
+int	downthis(int grid[4][4], int original[4][4], int j, int i)
 {
 	int value = grid[j][i];
 	int tmp = j;
 	j++;
 	while (j <= 3)
 	{
-		if (grid[j][i] == value)
+		if (grid[j][i] == value && original[j][i] == 0)
 		{
 			grid[j][i] *= 2;
 			grid[tmp][i] = 0;
+			original[j][i] = 1;
 			return (1);
 		}
 		else if (grid[j][i])
@@ -93,17 +95,18 @@ int	downthis(int grid[4][4], int j, int i)
 	return (0);
 }
 
-int	upthis(int grid[4][4], int j, int i)
+int	upthis(int grid[4][4], int original[4][4], int j, int i)
 {
 	int value = grid[j][i];
 	int tmp = j;
 	j--;
 	while (j >= 0)
 	{
-		if (grid[j][i] == value)
+		if (grid[j][i] == value && original[j][i] == 0)
 		{
 			grid[j][i] *= 2;
 			grid[tmp][i] = 0;
+			original[j][i] = 1;
 			return (1);
 		}
 		else if (grid[j][i])
@@ -124,7 +127,7 @@ int	upthis(int grid[4][4], int j, int i)
 }
 
 
-int	upper(int grid[4][4])
+int	upper(int grid[4][4], int original[4][4])
 {
 	int i = 0;
 	int ret = 0;
@@ -136,7 +139,7 @@ int	upper(int grid[4][4])
 		{
 			if (grid[j][i])
 			{
-				if ((test = upthis(grid, j, i)))
+				if ((test = upthis(grid, original, j, i)))
 					ret = test;
 			}
 			j++;
@@ -147,17 +150,18 @@ int	upper(int grid[4][4])
 }
 
 
-int	leftthis(int grid[4][4], int j, int i)
+int	leftthis(int grid[4][4], int original[4][4], int j, int i)
 {
 	int value = grid[j][i];
 	int tmp = i;
 	i--;
 	while (i >= 0)
 	{
-		if (grid[j][i] == value)
+		if (grid[j][i] == value && original[j][i] == 0)
 		{
 			grid[j][i] *= 2;
 			grid[j][tmp] = 0;
+			original[j][i] = 1;
 			return (1);
 		}
 		else if (grid[j][i])
@@ -177,7 +181,7 @@ int	leftthis(int grid[4][4], int j, int i)
 	return (0);
 }
 
-int	left(int grid[4][4])
+int	left(int grid[4][4], int original[4][4])
 {
 	int j = 0;
 	int ret = 0;
@@ -189,7 +193,7 @@ int	left(int grid[4][4])
 		{
 			if (grid[j][i])
 			{
-				if ((test = leftthis(grid, j, i)))
+				if ((test = leftthis(grid, original, j, i)))
 					ret = test;
 			}
 			i++;
@@ -199,17 +203,18 @@ int	left(int grid[4][4])
 	return (ret);
 }
 
-int	rightthis(int grid[4][4], int j, int i)
+int	rightthis(int grid[4][4], int original[4][4], int j, int i)
 {
 	int value = grid[j][i];
 	int tmp = i;
 	i++;
 	while (i <= 3)
 	{
-		if (grid[j][i] == value)
+		if (grid[j][i] == value && original[j][i] == 0)
 		{
 			grid[j][i] *= 2;
 			grid[j][tmp] = 0;
+			original[j][i] = 1;
 			return (1);
 		}
 		else if (grid[j][i])
@@ -230,7 +235,7 @@ int	rightthis(int grid[4][4], int j, int i)
 }
 
 
-int	right(int grid[4][4])
+int	right(int grid[4][4], int original[4][4])
 {
 	int j = 0;
 	int ret = 0;
@@ -242,7 +247,7 @@ int	right(int grid[4][4])
 		{
 			if (grid[j][i])
 			{
-				if ((test = rightthis(grid, j, i)))
+				if ((test = rightthis(grid, original, j, i)))
 					ret = test;
 			}
 			i--;
@@ -252,7 +257,7 @@ int	right(int grid[4][4])
 	return (ret);
 }
 
-int	down(int grid[4][4])
+int	down(int grid[4][4], int original[4][4])
 {
 	int i = 0;
 	int ret = 0;
@@ -264,7 +269,7 @@ int	down(int grid[4][4])
 		{
 			if (grid[j][i])
 			{
-				if ((test = downthis(grid, j, i)))
+				if ((test = downthis(grid, original, j, i)))
 					ret = test;
 			}
 			j--;
@@ -278,14 +283,17 @@ int	down(int grid[4][4])
 int		update(int grid[4][4], int action)
 {
 	int ret;
+	int original[4][4] = {{0}};
+
+	//ft_memcpy(&original[0], &grid[0], 16 * sizeof(int));
 	if (action == 0)
-		ret = upper(grid);
+		ret = upper(grid, original);
 	else if (action == 1)
-		ret = left(grid);
+		ret = left(grid, original);
 	else if (action == 2)
-		ret = right(grid);
+		ret = right(grid, original);
 	else
-		ret = down(grid);
+		ret = down(grid, original);
 	return (ret);
 }
 
