@@ -26,9 +26,9 @@ void	grid_generate(int grid[4][4], t_env *e)
 		exit(0);
 	  return;   //ERROR OMG
 	}
-	int position = (empty == 1) ? empty : rand() % empty;
+	int position = (empty == 1) ? 0 : rand() % empty;
 	int test = rand() % 100;
-	int value = test > 75 ? 4 : 2;
+	int value = test > 95 ? 4 : 2;
 	empty = 0;
 	i = 0;
 	while (i < 4)
