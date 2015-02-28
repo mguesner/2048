@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/02/28 13:50:24 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/02/28 14:00:41 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	display(t_env e)
     	i++;
     }
     i = 0;
+    attron(COLOR_PAIR(2));
     mvprintw(0, 0, "player : %s, score : %d, hi-score : %d", e.player, e.score, e.hi_score);
     while (i < 16)
     {

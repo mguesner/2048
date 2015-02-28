@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/02/28 11:54:17 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/02/28 14:12:48 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct				s_env
 }							t_env;
 
 void	display(t_env e);
-void	update(int grid[4][4], int action);
-void    grid_generate(int grid[4][4]);
+int	update(int grid[4][4], int action);
+void    grid_generate(int grid[4][4], t_env *e);
 
 #endif
