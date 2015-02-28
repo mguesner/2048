@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/02/28 14:18:19 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/02/28 15:33:35 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int main()
     grid_generate(e.grid, &e);
     grid_generate(e.grid, &e);
     e.score = 0;
-    printw("pseudo : ");
+    ft_init_color();
+    printw("%d, %d, pseudo : ", COLORS, COLOR_PAIRS);
 	getnstr(e.player, 8);
 	int fd = open("scores.txt", O_RDWR | O_CREAT, 0644);
 	char line[17];
@@ -84,6 +85,7 @@ int main()
 	buff[16] = '\n';
 	write(fd, buff, 17);
 	close (fd);
+    start_color();
     endwin();
     return (0);
 }
