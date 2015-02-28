@@ -7,131 +7,253 @@ void    grid_generate(int grid[4][4])
   int i = 0;
   int empty = 0;
   while (i < 4)
-    {
-      int j = 0;
-      while (j < 4)
-        {
+	{
+	  int j = 0;
+	  while (j < 4)
+		{
 	  if (grid[i][j] == 0)
-	    empty++;
+		empty++;
 	  j++;
-        }
-      i++;
-    }
+		}
+	  i++;
+	}
   if (empty == 0)
-    {
-      //ft_putstr("FAIL OMG QUIT THAT SHIT\n")
-      return;   //ERROR OMG
-    }
+	{
+	  //ft_putstr("FAIL OMG QUIT THAT SHIT\n")
+	  return;   //ERROR OMG
+	}
   int position = rand() % empty;
   int test = rand() % 100;
   int value = test > 75 ? 4 : 2;
   empty = 0;
   i = 0;
   while (i < 4)
-    {
-      int j = 0;
-      while (j < 4)
-        {
+	{
+	  int j = 0;
+	  while (j < 4)
+		{
 	  if (grid[i][j] == 0)
-	    empty++;
+		empty++;
 	  if (grid[i][j] == 0 && empty == position)
-            {
-	      grid[i][j] = value;
-	      return;
-            }
+			{
+		  grid[i][j] = value;
+		  return;
+			}
 	  j++;
-        }
-      i++;
-    }
+		}
+	  i++;
+	}
 }
 
-void    puttab(int grid[4][4])
+void	puttab(int grid[4][4])
 {
-  int i = 0;
-  while (i < 4)
-    {
-      int j = 0;
-      while (j < 4)
-	printf("%d", grid[i][j++]);
-      printf("\n");
-      i++;
-    }
-  printf("\n");
+	int i = 0;
+	while (i < 4)
+	{
+		int j = 0;
+		while (j < 4)
+			printf("%d", grid[i][j++]);
+		printf("\n");
+		i++;
+	}
+	printf("\n");
 
 }
 
-void    upthis(int grid[4][4], int j, int i)
+void	downthis(int grid[4][4], int j, int i)
 {
-  int value = grid[j][i];
-  int tmp = j;
-  j--;
-  while (j >= 0)
-    {
-      if (grid[j][i] == value)
-        {
-	  grid[j][i] *= 2;
-	  grid[tmp][i] = 0;
-	  return;
-        }
-      else if (grid[j][i])
-        {
-	  grid[tmp][i] = 0;
-	  grid[j + 1][i] = value;  
-	  return;
-        }
-      else if (!j)
-        {
-	  grid[tmp][i] = 0;
-	  grid[j][i] = value;
-	  return;
-        }
-      j--;
-    }
+	int value = grid[j][i];
+	int tmp = j;
+	j++;
+	while (j <= 3)
+	{
+		if (grid[j][i] == value)
+		{
+			grid[j][i] *= 2;
+			grid[tmp][i] = 0;
+			return;
+		}
+		else if (grid[j][i])
+		{
+			grid[tmp][i] = 0;
+			grid[j - 1][i] = value;
+			return;
+		}
+		else if (j == 3)
+		{
+			grid[tmp][i] = 0;
+			grid[j][i] = value;
+			return;
+		}
+		j++;
+	}
 }
 
-
-void    upper(int grid[4][4])
+void	upthis(int grid[4][4], int j, int i)
 {
-  int i = 0;
-  while (i < 4)
-    {
-      int j = 1;
-      while (j <= 3)
-        {
-	  if (grid[j][i])
-	    upthis(grid, j, i);
-	  j++;
-        }
-      i++;
-    }
-}
-
-void    left(int grid[4][4])
-{
-  (void)grid;
-}
-
-void    right(int grid[4][4])
-{
-  (void)grid;
-}
-
-void    down(int grid[4][4])
-{
-  (void)grid;
+	int value = grid[j][i];
+	int tmp = j;
+	j--;
+	while (j >= 0)
+	{
+		if (grid[j][i] == value)
+		{
+			grid[j][i] *= 2;
+			grid[tmp][i] = 0;
+			return;
+		}
+		else if (grid[j][i])
+		{
+			grid[tmp][i] = 0;
+			grid[j + 1][i] = value;
+			return;
+		}
+		else if (!j)
+		{
+			grid[tmp][i] = 0;
+			grid[j][i] = value;
+			return;
+		}
+		j--;
+	}
 }
 
 
-void    update(int grid[4][4], int action)
+void	upper(int grid[4][4])
 {
-  if (action == 0)
-    upper(grid);
-  else if (action == 1)
-    left(grid);
-  else if (action == 2)
-    right(grid);
-  else
-    down(grid);
+	int i = 0;
+	while (i < 4)
+	{
+		int j = 1;
+		while (j <= 3)
+		{
+			if (grid[j][i])
+			upthis(grid, j, i);
+			j++;
+		}
+		i++;
+	}
+}
+
+
+void	leftthis(int grid[4][4], int j, int i)
+{
+	int value = grid[j][i];
+	int tmp = i;
+	i--;
+	while (i >= 0)
+	{
+		if (grid[j][i] == value)
+		{
+			grid[j][i] *= 2;
+			grid[j][tmp] = 0;
+			return;
+		}
+		else if (grid[j][i])
+		{
+			grid[j][tmp] = 0;
+			grid[j][i + 1] = value;
+			return;
+		}
+		else if (!i)
+		{
+			grid[j][tmp] = 0;
+			grid[j][i] = value;
+			return;
+		}
+		i--;
+	}
+}
+
+void	left(int grid[4][4])
+{
+	int j = 0;
+	while (j < 4)
+	{
+		int i = 1;
+		while (i <= 3)
+		{
+			if (grid[j][i])
+				leftthis(grid, j, i);
+			i++;
+		}
+		j++;
+	}
+}
+
+void	rightthis(int grid[4][4], int j, int i)
+{
+	int value = grid[j][i];
+	int tmp = i;
+	i++;
+	while (i <= 3)
+	{
+		if (grid[j][i] == value)
+		{
+			grid[j][i] *= 2;
+			grid[j][tmp] = 0;
+			return;
+		}
+		else if (grid[j][i])
+		{
+			grid[j][tmp] = 0;
+			grid[j][i - 1] = value;
+			return;
+		}
+		else if (i == 3)
+		{
+			grid[j][tmp] = 0;
+			grid[j][i] = value;
+			return;
+		}
+		i++;
+	}
+}
+
+
+void	right(int grid[4][4])
+{
+	int j = 0;
+	while (j < 4)
+	{
+		int i = 2;
+		while (i >= 0)
+		{
+			if (grid[j][i])
+				rightthis(grid, j, i);
+			i--;
+		}
+		j++;
+	}
+}
+
+void	down(int grid[4][4])
+{
+	int i = 0;
+	while (i < 4)
+	{
+		int j = 2;
+		while (j >= 0)
+		{
+			if (grid[j][i])
+				downthis(grid, j, i);
+			j--;
+		}
+		i++;
+	}
+}
+
+
+void	update(int grid[4][4], int action)
+{
+	if (action == 0)
+		upper(grid);
+	else if (action == 1)
+		left(grid);
+	else if (action == 2)
+		right(grid);
+	else
+		down(grid);
 }
 
 int main()
@@ -156,6 +278,14 @@ int main()
   grid_generate(grid);
   puttab(grid);
   update(grid, action);
+  puttab(grid);
+  grid_generate(grid);
+  puttab(grid);
+  update(grid, 3);
+  puttab(grid);
+  update(grid, 1);
+  puttab(grid);
+  update(grid, 2);
   puttab(grid);
   //    while (i < mx * my)
   //    {
