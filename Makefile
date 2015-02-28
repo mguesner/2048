@@ -4,15 +4,17 @@ OBJ = main.o \
 	  display.o \
 	  test.o
 
-CC = gcc -g -Wall -Wextra -Werror
+LIB = libft
 
-all: $(NAME)
+CC = gcc -g -Wall -Wextra -Werror -I $(LIB)
+
+all: lib $(NAME)
 
 lib:
 	make -C $(LIB)
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ) -lncurses
+	$(CC) -o $(NAME) $(OBJ) -lncurses $(LIB)/libft.a
 
 %.o: %.c 
 	$(CC) -o $@ -c $<

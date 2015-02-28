@@ -6,13 +6,16 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/02/28 11:54:53 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/02/28 13:56:37 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <curses.h>
 #include <fcntl.h>
+#include <stdlib.h>
+#include <libft.h>
 #include "game.h"
+
 int main()
 {
 	t_env e;
@@ -35,12 +38,22 @@ int main()
     e.score = 0;
     printw("pseudo : ");
 	getnstr(e.player, 8);
-	//int fd = open("scores.txt", O_RDWR | O_CREAT, 0644);
-	//while (getline() >= 0)
+	int fd = open("scores.txt", O_RDWR | O_CREAT, 0644);
+	char line[17];
+	i = 0;
+	while (read(fd, line, 17) > 0)
+	{
+		if (!ft_memcmp(line, e.player, ft_strlen(e.player)))
+		{
+			e.hi_score = ft_atoi(line + 8);
+			break;
+		}
+		i++;
+	}
 	noecho();
     display(e);
 	int ch;
-	while ((ch = getch()) != ERR)
+	while ((ch = getch()))
 	{
 		if (ch == KEY_DOWN)
 			update(e.grid, 3);
@@ -59,7 +72,16 @@ int main()
     	grid_generate(e.grid);
 		display(e);
 	}
-
+	if (e.hi_score)
+		lseek(fd, i * 17, SEEK_SET);
+	e.score = 58745689;
+	char buff[17];
+	ft_memset(buff, ' ', 16);
+	ft_strcpy(buff, e.player);
+	ft_strcpy(buff + 8, ft_itoa(e.score));
+	buff[16] = '\n';
+	write(fd, buff, 17);
+	close (fd);
     endwin();
     return (0);
 }
