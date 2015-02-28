@@ -1,7 +1,8 @@
 NAME = game_2048
 
 OBJ = main.o \
-	  display.o
+	  display.o \
+	  test.o
 
 CC = gcc -g -Wall -Wextra -Werror
 
