@@ -11,14 +11,14 @@ void	grid_generate(int grid[4][4], t_env *e)
 	int empty = 0;
 	while (i < 4)
 	{
-	  int j = 0;
-	  while (j < 4)
+		int j = 0;
+		while (j < 4)
 		{
-	  if (grid[i][j] == 0)
-		empty++;
-	  j++;
+			if (grid[i][j] == 0)
+			empty++;
+				j++;
 		}
-	  i++;
+		i++;
 	}
 	if (empty == 0)
 	{
@@ -36,13 +36,13 @@ void	grid_generate(int grid[4][4], t_env *e)
 		int j = 0;
 		while (j < 4)
 		{
-			if (grid[i][j] == 0)
-				empty++;
 			if (grid[i][j] == 0 && empty == position)
 			{
 				grid[i][j] = value;
 				return;
 			}
+			if (grid[i][j] == 0)
+				empty++;
 			j++;
 		}
 		i++;
