@@ -3,7 +3,8 @@ NAME = game_2048
 OBJ = main.o \
 	  display.o \
 	  test.o \
-	  init_color.o
+	  init_color.o \
+	  win.o
 
 LIB = libft
 

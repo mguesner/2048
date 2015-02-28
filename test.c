@@ -140,7 +140,14 @@ int	upper(int grid[4][4], int original[4][4])
 			if (grid[j][i])
 			{
 				if ((test = upthis(grid, original, j, i)))
-					ret = test;
+				{
+					if (test == 1 && ret == 0)
+						ret = 1;
+					else if (ret == 1 && test > 1)
+						ret = test;
+					else
+						ret += (test > 1) ? test : 0;
+				}
 			}
 			j++;
 		}
@@ -194,7 +201,14 @@ int	left(int grid[4][4], int original[4][4])
 			if (grid[j][i])
 			{
 				if ((test = leftthis(grid, original, j, i)))
-					ret = test;
+				{
+					if (test == 1 && ret == 0)
+						ret = 1;
+					else if (ret == 1 && test > 1)
+						ret = test;
+					else
+						ret += (test > 1) ? test : 0;
+				}
 			}
 			i++;
 		}
@@ -248,7 +262,14 @@ int	right(int grid[4][4], int original[4][4])
 			if (grid[j][i])
 			{
 				if ((test = rightthis(grid, original, j, i)))
-					ret = test;
+				{
+					if (test == 1 && ret == 0)
+						ret = 1;
+					else if (ret == 1 && test > 1)
+						ret = test;
+					else
+						ret += (test > 1) ? test : 0;
+				}
 			}
 			i--;
 		}
@@ -262,6 +283,7 @@ int	down(int grid[4][4], int original[4][4])
 	int i = 0;
 	int ret = 0;
 	int test;
+
 	while (i < 4)
 	{
 		int j = 2;
@@ -270,7 +292,14 @@ int	down(int grid[4][4], int original[4][4])
 			if (grid[j][i])
 			{
 				if ((test = downthis(grid, original, j, i)))
-					ret = test;
+				{
+					if (test == 1 && ret == 0)
+						ret = 1;
+					else if (ret == 1 && test > 1)
+						ret = test;
+					else
+						ret += (test > 1) ? test : 0;
+				}
 			}
 			j--;
 		}
@@ -301,7 +330,10 @@ int		update(int grid[4][4], int action , t_env *e)
 		e->score += (ret <= 1) ? 0 : ret;
 		e->history.score[index] = e->score;
 		e->history.index += 1;
+		e->history.index %= 20;
 	}
+	// else
+	// 	ft_memcpy(&(grid[0]),&(e->history.grids[index - 1][0]), sizeof(int) * 16);
 	return (ret);
 }
 

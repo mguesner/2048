@@ -6,7 +6,7 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/02/28 17:37:32 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/02/28 18:12:41 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <libft.h>
+#include <time.h>
 #include "game.h"
 
 int main()
 {
 	t_env e;
 	int i = 0;
+	srand(time(NULL));
 	while (i < 16)
 	{
 		e.grid[i / 4][i % 4] = 0;
@@ -33,6 +35,7 @@ int main()
     e.size = e.mx * e.my;
     e.square_x = e.mx / 4;
     e.square_y = e.my / 4;
+    e.win = 0;
     grid_generate(e.grid, &e);
     grid_generate(e.grid, &e);
     e.score = 0;
@@ -52,7 +55,7 @@ int main()
 		i++;
 	}
 	noecho();
-    display(e);
+    display(&e);
 	int ch;
 	while ((ch = getch()))
 	{
@@ -68,12 +71,12 @@ int main()
 		else if (ch == 27)
 			break;
 		getmaxyx(stdscr, e.my, e.mx);
-		e.size = e.mx * e.my;
-		e.square_x = e.mx / 4;
-		e.square_y = e.my / 4;
-		if (test)
-			grid_generate(e.grid, &e);
-		display(e);
+    	e.size = e.mx * e.my;
+    	e.square_x = e.mx / 4;
+    	e.square_y = e.my / 4;
+    	if (test)
+    		grid_generate(e.grid, &e);
+		display(&e);
 	}
 	if (e.hi_score)
 		lseek(fd, i * 17, SEEK_SET);

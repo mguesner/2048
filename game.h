@@ -6,7 +6,7 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/02/28 17:37:01 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/02/28 17:53:44 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 enum						e_const
 {
-	WIN_VALUE = 2048
+	WIN_VALUE = 128
 };
 
 typedef struct				s_history
@@ -51,14 +51,14 @@ typedef struct				s_env
 	char					player[9];
 	int						score;
 	int						hi_score;
+	int						win;
 	t_history				history;
 }							t_env;
 
-
-
-void						display(t_env e);
+void						display(t_env *e);
 int							update(int grid[4][4], int action, t_env *e);
 void						grid_generate(int grid[4][4], t_env *e);
 void						ft_init_color();
+void						ft_win(t_env *e);
 
 #endif
