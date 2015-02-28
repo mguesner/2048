@@ -14,10 +14,10 @@ all: lib $(NAME)
 lib:
 	make -C $(LIB)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) game.h
 	$(CC) -o $(NAME) $(OBJ) -lncurses $(LIB)/libft.a
 
-%.o: %.c 
+%.o: %.c
 	$(CC) -o $@ -c $<
 
 clean:

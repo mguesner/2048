@@ -76,7 +76,7 @@ int	downthis(int grid[4][4], int original[4][4], int j, int i)
 			grid[j][i] *= 2;
 			grid[tmp][i] = 0;
 			original[j][i] = 1;
-			return (1);
+			return (grid[j][i]);
 		}
 		else if (grid[j][i])
 		{
@@ -107,7 +107,7 @@ int	upthis(int grid[4][4], int original[4][4], int j, int i)
 			grid[j][i] *= 2;
 			grid[tmp][i] = 0;
 			original[j][i] = 1;
-			return (1);
+			return (grid[j][i]);
 		}
 		else if (grid[j][i])
 		{
@@ -162,7 +162,7 @@ int	leftthis(int grid[4][4], int original[4][4], int j, int i)
 			grid[j][i] *= 2;
 			grid[j][tmp] = 0;
 			original[j][i] = 1;
-			return (1);
+			return (grid[j][i]);
 		}
 		else if (grid[j][i])
 		{
@@ -215,7 +215,7 @@ int	rightthis(int grid[4][4], int original[4][4], int j, int i)
 			grid[j][i] *= 2;
 			grid[j][tmp] = 0;
 			original[j][i] = 1;
-			return (1);
+			return (grid[j][i]);
 		}
 		else if (grid[j][i])
 		{
@@ -280,12 +280,14 @@ int	down(int grid[4][4], int original[4][4])
 }
 
 
-int		update(int grid[4][4], int action)
+int		update(int grid[4][4], int action , t_env *e)
 {
 	int ret;
 	int original[4][4] = {{0}};
+	int index;
 
-	//ft_memcpy(&original[0], &grid[0], 16 * sizeof(int));
+	index = e->history.index;
+	ft_memcpy(&(e->history.grids[index][0]), &(grid[0]), sizeof(int) * 16);
 	if (action == 0)
 		ret = upper(grid, original);
 	else if (action == 1)
@@ -294,6 +296,12 @@ int		update(int grid[4][4], int action)
 		ret = right(grid, original);
 	else
 		ret = down(grid, original);
+	if (ret)
+	{
+		e->score += (ret <= 1) ? 0 : ret;
+		e->history.score[index] = e->score;
+		e->history.index += 1;
+	}
 	return (ret);
 }
 
