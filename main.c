@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/02/28 16:56:48 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/02/28 17:40:42 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main()
     e.size = e.mx * e.my;
     e.square_x = e.mx / 4;
     e.square_y = e.my / 4;
+    e.win = 0;
     grid_generate(e.grid, &e);
     grid_generate(e.grid, &e);
     e.score = 0;
@@ -52,7 +53,7 @@ int main()
 		i++;
 	}
 	noecho();
-    display(e);
+    display(&e);
 	int ch;
 	while ((ch = getch()))
 	{
@@ -73,7 +74,7 @@ int main()
     	e.square_y = e.my / 4;
     	if (test)
     		grid_generate(e.grid, &e);
-		display(e);
+		display(&e);
 	}
 	if (e.hi_score)
 		lseek(fd, i * 17, SEEK_SET);
