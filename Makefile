@@ -2,12 +2,16 @@ NAME = game_2048
 
 OBJ = main.o \
 	  display.o \
-	  test.o \
 	  init_color.o \
 	  win.o \
 	  play.o \
 	  init.o \
-	  save.o
+	  save.o \
+	  right.o\
+	  up.o \
+	  leftt.o \
+	  down.o \
+	  update.o\
 
 LIB = libft
 

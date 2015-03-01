@@ -6,12 +6,17 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 13:26:01 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 13:55:03 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GAME_H
 # define GAME_H
+
+# include <curses.h>
+# include <time.h>
+# include <stdlib.h>
+# include <libft.h>
 
 # define BLACK				20
 # define WHITE				21
