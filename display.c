@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 13:52:45 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:55:32 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void			display(t_env *e)
 	i = 0;
 	attron(COLOR_PAIR(1));
 	mvprintw(0, 0, "player : %s, score : %d, hi-score : %d"
-		, e->player, e->score, e->hi_score);
+		, e->player, e->score, e->hi_score > e->score ? e->hi_score : e->score);
 	win = 0;
 	while (i < 16)
 	{

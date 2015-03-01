@@ -6,12 +6,25 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 13:10:23 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 15:13:16 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:56:50 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include <curses.h>
+
+static void	back(int grid[4][4], t_env *e)
+{
+	int	i;
+
+	if (!(e->history.stored))
+		return ;
+	i = (e->history.index) ? e->history.index - 1 : 19;
+	ft_memcpy(&(grid[0]), &(e->history.grids[i][0]), sizeof(int) * 16);
+	e->history.stored -= 1;
+	e->history.index = i;
+	e->score = e->history.score[i];
+}
 
 void	play(t_env *e)
 {
@@ -32,6 +45,8 @@ void	play(t_env *e)
 			test = update(e->grid, 2, e);
 		else if (ch == 27)
 			break ;
+		else if (ch == 'b')
+			back(e->grid, e);
 		getmaxyx(stdscr, e->my, e->mx);
 		e->size = e->mx * e->my;
 		e->square_x = e->mx / 4;

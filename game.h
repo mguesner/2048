@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 15:45:42 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:08:51 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct				s_history
 	int						grids[20][4][4];
 	int						score[20];
 	int						index;
+	int						stored;
 	int						back;
 }							t_history;
 
