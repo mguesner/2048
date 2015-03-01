@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 15:01:01 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:21:28 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ typedef struct				s_env
 	int						score;
 	int						hi_score;
 	int						win;
+	int						fd;
+	int						i;
 	t_history				history;
 }							t_env;
 
