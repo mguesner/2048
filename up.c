@@ -6,7 +6,7 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:57:09 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 13:46:08 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:07:48 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	upthis(int grid[4][4], int original[4][4], int j, int i)
 {
-	int value = grid[j][i];
-	int tmp = j;
+	int	value;
+	int	tmp;
+
+	value = grid[j][i];
+	tmp = j;
 	j--;
 	while (j >= 0)
 	{
@@ -37,15 +40,18 @@ int	upthis(int grid[4][4], int original[4][4], int j, int i)
 	return (0);
 }
 
-
 int	upper(int grid[4][4], int original[4][4])
 {
-	int i = 0;
-	int ret = 0;
-	int test;
+	int	i;
+	int	ret;
+	int	j;
+	int	test;
+
+	i = 0;
+	ret = 0;
 	while (i < 4)
 	{
-		int j = 1;
+		j = 1;
 		while (j <= 3)
 		{
 			if (grid[j][i])

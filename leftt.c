@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:58:56 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 13:58:42 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:12:49 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	leftthis(int grid[4][4], int original[4][4], int j, int i)
 {
-	int value = grid[j][i];
-	int tmp = i;
+	int	value;
+	int	tmp;
+
+	value = grid[j][i];
+	tmp = i;
 	i--;
 	while (i >= 0)
 	{
@@ -25,7 +28,7 @@ int	leftthis(int grid[4][4], int original[4][4], int j, int i)
 			return (grid[j][i]);
 		else if (grid[j][i] && !(grid[j][tmp] = 0)
 			&& (grid[j][i + 1] = value))
-			return (tmp - (i + 1 ));
+			return (tmp - (i + 1));
 		else if (!i)
 		{
 			grid[j][tmp] = 0;
@@ -39,12 +42,16 @@ int	leftthis(int grid[4][4], int original[4][4], int j, int i)
 
 int	left(int grid[4][4], int original[4][4])
 {
-	int j = 0;
-	int ret = 0;
-	int test;
+	int	j;
+	int	ret;
+	int	test;
+	int	i;
+
+	j = 0;
+	ret = 0;
 	while (j < 4)
 	{
-		int i = 1;
+		i = 1;
 		while (i <= 3)
 		{
 			if (grid[j][i])
