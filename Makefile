@@ -12,7 +12,8 @@ OBJ = main.o \
 	  leftt.o \
 	  down.o \
 	  update.o\
-	  generate.o
+	  generate.o \
+	  check_enum.o
 
 LIB = libft
 
@@ -23,10 +24,10 @@ all: lib $(NAME)
 lib:
 	make -C $(LIB)
 
-$(NAME): $(OBJ) game.h
+$(NAME): $(OBJ)
 	$(CC) -o $(NAME) $(OBJ) -lncurses $(LIB)/libft.a
 
-%.o: %.c
+%.o: %.c game.h
 	$(CC) -o $@ -c $<
 
 clean:

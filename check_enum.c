@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   check_enum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 14:41:49 by mguesner         ###   ########.fr       */
+/*   Created: 2015/03/01 14:41:59 by mguesner          #+#    #+#             */
+/*   Updated: 2015/03/01 14:55:26 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <curses.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <libft.h>
 #include "game.h"
+#include <libft.h>
 
-int main(void)
+void	check_enum(void)
 {
-	t_env	e;
-	int		i;
-	int		fd;
-	char	line[17];
+	int	tmp;
 
-	check_enum();
-	init(&e);
-	fd = open("scores.txt", O_RDWR | O_CREAT, 0644);
-	i = 0;
-	while (read(fd, line, 17) > 0)
+	tmp = WIN_VALUE;
+	if (tmp < 4)
 	{
-		if (!ft_memcmp(line, e.player, ft_strlen(e.player)))
-		{
-			e.hi_score = ft_atoi(line + 8);
-			break ;
-		}
-		i++;
+		ft_putendl_fd("bad win value", 2);
+		exit(-1);
 	}
-	play(&e);
-	save(&e, fd, i);
-	endwin();
-	curs_set(1);
-	return (0);
+	while (tmp)
+	{
+		if (tmp & 1 && tmp & 0b11111110)
+		{
+			ft_putendl_fd("bad win value", 2);
+			exit(-1);
+		}
+		tmp = tmp >> 1;
+	}
 }

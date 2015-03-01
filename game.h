@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 14:36:54 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:54:06 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ int							left(int grid[4][4], int original[4][4]);
 int							upper(int grid[4][4], int original[4][4]);
 int							down(int grid[4][4], int original[4][4]);
 int							right(int grid[4][4], int original[4][4]);
+void						check_enum(void);
 
 #endif
