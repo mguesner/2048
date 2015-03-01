@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 13:18:29 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 14:09:32 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:51:10 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ void	init(t_env *e)
 	printw("pseudo : ");
 	getnstr(e->player, 8);
 	curs_set(0);
-	grid_generate(e->grid, e);
+	grid_generate(e->grid);
 }

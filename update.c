@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 11:53:14 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 14:35:48 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:01:43 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-int		update(int grid[4][4], int action , t_env *e)
+int		update(int grid[4][4], int action, t_env *e)
 {
 	int	ret;
-	int	original[4][4] = {{0}};
+	int	original[4][4];
 	int	index;
 
+	ft_bzero(original, 16 * sizeof(int));
 	index = e->history.index;
 	ft_memcpy(&(e->history.grids[index][0]), &(grid[0]), sizeof(int) * 16);
 	if (action == 0)
