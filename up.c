@@ -6,13 +6,13 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:57:09 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 14:15:32 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:10:00 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-int	upthis(int grid[4][4], int original[4][4], int j, int i)
+static int	upthis(int grid[4][4], int original[4][4], int j, int i)
 {
 	int	value;
 	int	tmp;
@@ -40,7 +40,7 @@ int	upthis(int grid[4][4], int original[4][4], int j, int i)
 	return (0);
 }
 
-int	upper(int grid[4][4], int original[4][4])
+int			upper(int grid[4][4], int original[4][4])
 {
 	int	i;
 	int	ret;

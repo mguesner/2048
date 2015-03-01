@@ -6,13 +6,13 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:58:56 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 14:15:46 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:09:50 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-int	leftthis(int grid[4][4], int original[4][4], int j, int i)
+static int	leftthis(int grid[4][4], int original[4][4], int j, int i)
 {
 	int	value;
 	int	tmp;
@@ -40,7 +40,7 @@ int	leftthis(int grid[4][4], int original[4][4], int j, int i)
 	return (0);
 }
 
-int	left(int grid[4][4], int original[4][4])
+int			left(int grid[4][4], int original[4][4])
 {
 	int	j;
 	int	ret;

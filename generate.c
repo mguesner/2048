@@ -6,13 +6,13 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:55:13 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 14:58:53 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:09:17 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-void	pop_new(int grid[4][4], int position, int value)
+static void	pop_new(int grid[4][4], int position, int value)
 {
 	int empty;
 	int i;
@@ -38,7 +38,7 @@ void	pop_new(int grid[4][4], int position, int value)
 	}
 }
 
-void	grid_generate(int grid[4][4])
+void		grid_generate(int grid[4][4])
 {
 	int	i;
 	int	empty;
