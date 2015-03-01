@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 15:28:11 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:29:17 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int main(void)
 	check_enum();
 	ft_bzero(&e, sizeof(t_env));
 	init(&e);
+	if (e.square_x < 3 || e.square_y < 3)
+		end(&e);
 	noecho();
 	e.fd = open("scores.txt", O_RDWR | O_CREAT, 0644);
 	e.i = 0;

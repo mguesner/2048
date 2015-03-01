@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 13:10:23 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 16:18:08 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:26:57 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ static void	resize(t_env *e)
 	e->size = e->mx * e->my;
 	e->square_x = e->mx / 4;
 	e->square_y = e->my / 4;
+	if (e->square_x < 3 || e->square_y < 3)
+		end(e);
 }
 
 static void	play2(t_env *e, int test)

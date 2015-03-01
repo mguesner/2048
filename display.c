@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 15:55:32 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:46:18 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ static int		display3(t_env *e, int i)
 		tmp = tmp >> 1;
 	attron(COLOR_PAIR(j));
 	if (e->grid[i / 4][i % 4])
-		mvprintw((i / 4) * e->square_y + e->square_y / 2
-			, (i % 4) * e->square_x + e->square_x / 2
+		mvprintw((i / 4) * e->square_y + e->square_y / 2 + 1
+			, (i % 4) * e->square_x + e->square_x / 2 + 1
 			, "%d", e->grid[i / 4][i % 4]);
 	return (win);
 }
@@ -70,6 +70,7 @@ void			display(t_env *e)
 	int		y;
 
 	i = 0;
+	clear();
 	while (i < e->size)
 	{
 		x = i % e->mx;
@@ -77,16 +78,13 @@ void			display(t_env *e)
 		display2(e, x, y);
 		i++;
 	}
-	i = 0;
+	i = -1;
 	attron(COLOR_PAIR(1));
 	mvprintw(0, 0, "player : %s, score : %d, hi-score : %d"
 		, e->player, e->score, e->hi_score > e->score ? e->hi_score : e->score);
 	win = 0;
-	while (i < 16)
-	{
+	while (++i < 16)
 		win = display3(e, i);
-		i++;
-	}
 	if (win == 1 && !e->win)
 		ft_win(e);
 }
