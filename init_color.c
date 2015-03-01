@@ -6,17 +6,16 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 14:29:17 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 13:53:55 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:09:28 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <curses.h>
-#include "game.h"  
+#include "game.h"
 #include <stdlib.h>
 
-void	ft_init_color()
+void	ft_init_color(void)
 {
-	start_color();
 	init_color(WHITE, 1000, 1000, 1000);
 	init_color(BLACK, 0, 0, 0);
 	init_color(COLOR_2, 1000, 1000, 1000);
