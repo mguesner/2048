@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/02/28 17:53:44 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 13:26:01 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,8 @@ int							update(int grid[4][4], int action, t_env *e);
 void						grid_generate(int grid[4][4], t_env *e);
 void						ft_init_color();
 void						ft_win(t_env *e);
+void						play(t_env *e);
+void						init(t_env *e);
+void						save(t_env *e, int fd, int i);
 
 #endif

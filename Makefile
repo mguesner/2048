@@ -4,7 +4,10 @@ OBJ = main.o \
 	  display.o \
 	  test.o \
 	  init_color.o \
-	  win.o
+	  win.o \
+	  play.o \
+	  init.o \
+	  save.o
 
 LIB = libft
 
