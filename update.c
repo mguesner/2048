@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 11:53:14 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 15:01:43 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:21:45 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		update(int grid[4][4], int action, t_env *e)
 		e->score += (ret <= 1) ? 0 : ret;
 		e->history.score[index] = e->score;
 		e->history.index += 1;
+		if (e->history.stored < 20)
+			e->history.stored += 1;
 		e->history.index %= 20;
 	}
 	return (ret);
