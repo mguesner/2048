@@ -6,14 +6,14 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 13:10:23 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 15:28:33 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:40:07 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 #include <curses.h>
 
-void	back(int grid[4][4], t_env *e)
+static void	back(int grid[4][4], t_env *e)
 {
 	int	i;
 

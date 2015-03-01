@@ -6,7 +6,7 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 11:53:14 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 15:21:45 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:34:45 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int		update(int grid[4][4], int action, t_env *e)
 		ret = down(grid, original);
 	if (ret)
 	{
-		e->score += (ret <= 1) ? 0 : ret;
 		e->history.score[index] = e->score;
+		e->score += (ret <= 1) ? 0 : ret;
 		e->history.index += 1;
 		if (e->history.stored < 20)
 			e->history.stored += 1;

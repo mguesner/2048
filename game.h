@@ -6,7 +6,7 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 15:19:29 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 15:31:46 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef struct				s_env
 	int						score;
 	int						hi_score;
 	int						win;
+	int						fd;
+	int						i;
 	t_history				history;
 }							t_env;
 
