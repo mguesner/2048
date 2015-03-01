@@ -13,7 +13,8 @@ OBJ = main.o \
 	  down.o \
 	  update.o\
 	  generate.o \
-	  check_enum.o
+	  check_enum.o \
+	  assign_ret.o
 
 LIB = libft
 

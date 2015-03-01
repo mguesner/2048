@@ -6,13 +6,13 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:58:40 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 14:35:01 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:12:08 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-int		downthis(int grid[4][4], int original[4][4], int j, int i)
+static int		downthis(int grid[4][4], int original[4][4], int j, int i)
 {
 	int	value;
 	int	tmp;
@@ -38,16 +38,6 @@ int		downthis(int grid[4][4], int original[4][4], int j, int i)
 		j++;
 	}
 	return (0);
-}
-
-void	ft_assign_ret(int *ret, int test)
-{
-	if (test == 1 && (*ret) == 0)
-		(*ret) = 1;
-	else if ((*ret) == 1 && test > 1)
-		(*ret) = test;
-	else
-		(*ret) += (test > 1) ? test : 0;
 }
 
 int		down(int grid[4][4], int original[4][4])
