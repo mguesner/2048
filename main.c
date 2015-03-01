@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/02/28 18:12:41 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 11:51:05 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ int main()
     	if (test)
     		grid_generate(e.grid, &e);
 		display(&e);
+		// if (!test)
+		// 	mvprintw(0, 0, "no move");
 	}
 	if (e.hi_score)
 		lseek(fd, i * 17, SEEK_SET);

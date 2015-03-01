@@ -113,7 +113,7 @@ int	upthis(int grid[4][4], int original[4][4], int j, int i)
 		{
 			grid[tmp][i] = 0;
 			grid[j + 1][i] = value;
-			return (j + 1 - tmp);
+			return (tmp - (j + 1));
 		}
 		else if (!j)
 		{
@@ -141,6 +141,8 @@ int	upper(int grid[4][4], int original[4][4])
 			{
 				if ((test = upthis(grid, original, j, i)))
 				{
+					// mvprintw(0, 0, "%d", test);
+					// getch();
 					if (test == 1 && ret == 0)
 						ret = 1;
 					else if (ret == 1 && test > 1)
@@ -175,7 +177,7 @@ int	leftthis(int grid[4][4], int original[4][4], int j, int i)
 		{
 			grid[j][tmp] = 0;
 			grid[j][i + 1] = value;
-			return (i + 1 - tmp);
+			return (tmp - (i + 1 ));
 		}
 		else if (!i)
 		{
