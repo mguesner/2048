@@ -6,7 +6,7 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 14:36:54 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:50:14 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ typedef struct				s_env
 
 void						display(t_env *e);
 int							update(int grid[4][4], int action, t_env *e);
-void						grid_generate(int grid[4][4], t_env *e);
+void						grid_generate(int grid[4][4]);
 void						ft_init_color();
 void						ft_win(t_env *e);
 void						play(t_env *e);

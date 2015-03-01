@@ -6,13 +6,13 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 11:53:14 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 14:35:48 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:41:51 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-int		update(int grid[4][4], int action , t_env *e)
+int		update(int grid[4][4], int action, t_env *e)
 {
 	int	ret;
 	int	original[4][4] = {{0}};
