@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 16:08:51 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:11:43 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ int							right(int grid[4][4], int original[4][4]);
 void						check_enum(void);
 void						end(t_env *e);
 void						reset(t_env *e);
+void						lose(t_env *e);
 
 #endif

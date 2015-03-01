@@ -15,7 +15,8 @@ OBJ = main.o \
 	  generate.o \
 	  check_enum.o \
 	  end.o \
-	  reset.o
+	  reset.o \
+	  lose.o
 
 LIB = libft
 

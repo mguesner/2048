@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 13:10:23 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 15:56:50 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:09:31 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,28 @@ static void	back(int grid[4][4], t_env *e)
 	e->history.stored -= 1;
 	e->history.index = i;
 	e->score = e->history.score[i];
+}
+
+static int	can_move(int grid[4][4])
+{
+	int	ret;
+	int	copy[4][4];
+	int	original[4][4];
+
+	ft_bzero(original, 16 * sizeof(int));
+	ft_memcpy(&(copy[0]), &(grid[0]), sizeof(int) * 16);
+	ret = 0;
+	ret = upper(copy, original);
+	if (ret)
+		return (ret);
+	ret = left(copy, original);
+	if (ret)
+		return (ret);
+	ret = right(copy, original);
+	if (ret)
+		return (ret);
+	ret = down(copy, original);
+	return (ret);
 }
 
 void	play(t_env *e)
@@ -54,5 +76,7 @@ void	play(t_env *e)
 		if (test)
 			grid_generate(e->grid);
 		display(e);
+		if (!can_move(e->grid))
+			lose(e);
 	}
 }
