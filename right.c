@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   right.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:58:48 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 13:56:12 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:05:27 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	rightthis(int grid[4][4], int original[4][4], int j, int i)
 {
-	int value = grid[j][i];
-	int tmp = i;
+	int	value;
+	int	tmp;
+
+	value = grid[j][i];
+	tmp = i;
 	i++;
 	while (i <= 3)
 	{
@@ -37,15 +40,18 @@ int	rightthis(int grid[4][4], int original[4][4], int j, int i)
 	return (0);
 }
 
-
 int	right(int grid[4][4], int original[4][4])
 {
-	int j = 0;
-	int ret = 0;
-	int test;
+	int	j;
+	int	i;
+	int	ret;
+	int	test;
+
+	j = 0;
+	ret = 0;
 	while (j < 4)
 	{
-		int i = 2;
+		i = 2;
 		while (i >= 0)
 		{
 			if (grid[j][i])
