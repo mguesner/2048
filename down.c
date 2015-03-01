@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   down.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:58:40 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 16:12:08 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:15:38 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int		downthis(int grid[4][4], int original[4][4], int j, int i)
 	return (0);
 }
 
-int		down(int grid[4][4], int original[4][4])
+int				down(int grid[4][4], int original[4][4])
 {
 	int i;
 	int j;

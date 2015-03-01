@@ -6,7 +6,7 @@
 /*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 13:10:23 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 16:09:31 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:18:08 by mguesner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,24 @@ static int	can_move(int grid[4][4])
 	return (ret);
 }
 
-void	play(t_env *e)
+static void	resize(t_env *e)
+{
+	getmaxyx(stdscr, e->my, e->mx);
+	e->size = e->mx * e->my;
+	e->square_x = e->mx / 4;
+	e->square_y = e->my / 4;
+}
+
+static void	play2(t_env *e, int test)
+{
+	if (test)
+		grid_generate(e->grid);
+	display(e);
+	if (!can_move(e->grid))
+		lose(e);
+}
+
+void		play(t_env *e)
 {
 	int		ch;
 	int		test;
@@ -69,14 +86,8 @@ void	play(t_env *e)
 			break ;
 		else if (ch == 'b')
 			back(e->grid, e);
-		getmaxyx(stdscr, e->my, e->mx);
-		e->size = e->mx * e->my;
-		e->square_x = e->mx / 4;
-		e->square_y = e->my / 4;
-		if (test)
-			grid_generate(e->grid);
-		display(e);
-		if (!can_move(e->grid))
-			lose(e);
+		else if (ch == ERR)
+			resize(e);
+		play2(e, test);
 	}
 }
