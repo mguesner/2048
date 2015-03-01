@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   right.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:58:48 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 14:40:05 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 16:13:25 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
-int	rightthis(int grid[4][4], int original[4][4], int j, int i)
+static int	rightthis(int grid[4][4], int original[4][4], int j, int i)
 {
 	int	value;
 	int	tmp;
@@ -40,7 +40,7 @@ int	rightthis(int grid[4][4], int original[4][4], int j, int i)
 	return (0);
 }
 
-int	right(int grid[4][4], int original[4][4])
+int			right(int grid[4][4], int original[4][4])
 {
 	int	j;
 	int	i;
