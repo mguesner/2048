@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   leftt.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mguesner <mguesner@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:58:56 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 14:12:49 by mguesner         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:15:46 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <game.h>
+#include "game.h"
 
 int	leftthis(int grid[4][4], int original[4][4], int j, int i)
 {

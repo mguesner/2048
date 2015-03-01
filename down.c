@@ -6,11 +6,11 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:58:40 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 13:39:13 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:35:01 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <game.h>
+#include "game.h"
 
 int		downthis(int grid[4][4], int original[4][4], int j, int i)
 {
@@ -44,7 +44,7 @@ void	ft_assign_ret(int *ret, int test)
 {
 	if (test == 1 && (*ret) == 0)
 		(*ret) = 1;
-	else if (ret == 1 && test > 1)
+	else if ((*ret) == 1 && test > 1)
 		(*ret) = test;
 	else
 		(*ret) += (test > 1) ? test : 0;

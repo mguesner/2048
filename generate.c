@@ -6,11 +6,11 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:55:13 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 13:02:39 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:37:14 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <game.h>
+#include "game.h"
 
 void	grid_generate(int grid[4][4], t_env *e)
 {
@@ -29,11 +29,7 @@ void	grid_generate(int grid[4][4], t_env *e)
 		i++;
 	}
 	if (empty == 0)
-	{
-	  //ft_putstr("FAIL OMG QUIT THAT SHIT\n")
-		exit(0);
-	  return;   //ERROR OMG
-	}
+		return;
 	int position = (empty == 1) ? 0 : rand() % empty;
 	int test = rand() % 100;
 	int value = test > 95 ? 4 : 2;

@@ -6,11 +6,11 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 12:57:09 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 14:07:48 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:15:32 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <game.h>
+#include "game.h"
 
 int	upthis(int grid[4][4], int original[4][4], int j, int i)
 {

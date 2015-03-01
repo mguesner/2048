@@ -6,7 +6,7 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/28 10:50:32 by mguesner          #+#    #+#             */
-/*   Updated: 2015/03/01 13:59:48 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:36:54 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,10 @@ void						play(t_env *e);
 void						init(t_env *e);
 void						save(t_env *e, int fd, int i);
 int							update(int grid[4][4], int action , t_env *e);
+void						ft_assign_ret(int *ret, int test);
+int							left(int grid[4][4], int original[4][4]);
+int							upper(int grid[4][4], int original[4][4]);
+int							down(int grid[4][4], int original[4][4]);
+int							right(int grid[4][4], int original[4][4]);
 
 #endif

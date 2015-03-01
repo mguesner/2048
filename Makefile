@@ -12,6 +12,7 @@ OBJ = main.o \
 	  leftt.o \
 	  down.o \
 	  update.o\
+	  generate.o
 
 LIB = libft
 

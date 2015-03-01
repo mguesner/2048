@@ -6,19 +6,18 @@
 /*   By: nguezell <nguezell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/01 11:53:14 by nguezell          #+#    #+#             */
-/*   Updated: 2015/03/01 14:07:03 by nguezell         ###   ########.fr       */
+/*   Updated: 2015/03/01 14:35:48 by nguezell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <game.h>
+#include "game.h"
 
 int		update(int grid[4][4], int action , t_env *e)
 {
 	int	ret;
-	int	original[4][4];
+	int	original[4][4] = {{0}};
 	int	index;
 
-	original = = {{0}};
 	index = e->history.index;
 	ft_memcpy(&(e->history.grids[index][0]), &(grid[0]), sizeof(int) * 16);
 	if (action == 0)
